@@ -40,3 +40,14 @@ def format_datetime(date_time:int)->str:
         str: _description_
     """
     return datetime.datetime.fromtimestamp(date_time).strftime('%d-%m-%Y %H:%M:%S')
+
+def format_time(date_time:int)->str:
+    """_summary_
+
+    Args:
+        date_time (int): _description_
+
+    Returns:
+        str: _description_
+    """
+    return datetime.datetime.fromtimestamp(date_time).strftime('%H:%M:%S')

@@ -23,7 +23,9 @@ def get_water_status()->dict:
             "currentSetpoint": utils.convert_to_real_temp(data['currentSetpoint']),
             "lastTimerSetPoint": utils.convert_to_real_temp(data['lastTimerSetPoint']),
             "lastTimerDurationMinutes": data['lastTimerDurationMinutes'],
-            "nextScheduleEventUtcTime": utils.format_datetime(data['nextScheduleEventUtcTime'])
+            "nextScheduleEventUtcTime": utils.format_datetime(data['nextScheduleEventUtcTime']),
+            "nextEventTime":utils.format_time(data['nextScheduleEventUtcTime'])
+            
     }
     
     return waterStatus, 200
