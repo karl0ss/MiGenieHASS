@@ -11,7 +11,6 @@ def convert_to_real_temp(migenie_value:int, flip:bool=False)->float:
     """    
     if flip:
         start = [50,5]
-        # [88,24]
         if migenie_value == 0:
             return 0.0
         else:
@@ -63,21 +62,29 @@ def format_time(date_time:int)->str:
     """
     return datetime.datetime.fromtimestamp(date_time).strftime('%H:%M:%S')
 
-def format_temp(temp:int):
+def format_temp(temp:int)->float:
     """_summary_
 
     Args:
         temp (int): _description_
 
     Returns:
-        _type_: _description_
+        float: _description_
     """    
     temp = str(temp)
     whole = temp[:-1]
     decimal = temp[-1]
     return float(f"{whole}.{decimal}")
 
-def is_valid_time(time:int):
+def is_valid_time(time:int)->bool:
+    """_summary_
+
+    Args:
+        time (int): _description_
+
+    Returns:
+        bool: _description_
+    """    
     is_valid = time / 30
     if is_valid.is_integer():
         return True
