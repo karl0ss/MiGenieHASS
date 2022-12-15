@@ -1,0 +1,333 @@
+{
+	"info": {
+		"_postman_id": "8022322f-55e5-4ded-8e67-7c3ba8a6fd8d",
+		"name": "MiGenie",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Endpoints",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "User-Agent-Wiser",
+						"value": "iPhoneTestTool;iOS6;WiserApp2.0.0",
+						"type": "text"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "default",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{}",
+					"options": {
+						"raw": {
+							"language": "javascript"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://public.wcs.schneider-electric.ws/rpc/public_ssp/pua_init",
+					"protocol": "https",
+					"host": [
+						"public",
+						"wcs",
+						"schneider-electric",
+						"ws"
+					],
+					"path": [
+						"rpc",
+						"public_ssp",
+						"pua_init"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Turn Off Heating",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "User-Agent-Wiser",
+						"type": "text",
+						"value": "iPhoneTestTool;iOS6;WiserApp2.0.0"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"zoneId\": [\n        0\n    ],\n    \"setpoint\": 0\n}",
+					"options": {
+						"raw": {
+							"language": "javascript"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://public.wcs.schneider-electric.ws/rpc/public_genie/adjust_setpoint",
+					"protocol": "https",
+					"host": [
+						"public",
+						"wcs",
+						"schneider-electric",
+						"ws"
+					],
+					"path": [
+						"rpc",
+						"public_genie",
+						"adjust_setpoint"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Turn On Heating 22Deg",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "User-Agent-Wiser",
+						"type": "text",
+						"value": "iPhoneTestTool;iOS6;WiserApp2.0.0"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"zoneId\": [\n        0\n    ],\n    \"setpoint\": 84\n}",
+					"options": {
+						"raw": {
+							"language": "javascript"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://public.wcs.schneider-electric.ws/rpc/public_genie/adjust_setpoint",
+					"protocol": "https",
+					"host": [
+						"public",
+						"wcs",
+						"schneider-electric",
+						"ws"
+					],
+					"path": [
+						"rpc",
+						"public_genie",
+						"adjust_setpoint"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "poll Genie",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "User-Agent-Wiser",
+						"type": "text",
+						"value": "iPhoneTestTool;iOS6;WiserApp2.0.0"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{}",
+					"options": {
+						"raw": {
+							"language": "javascript"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://public.wcs.schneider-electric.ws/rpc/public_genie/poll",
+					"protocol": "https",
+					"host": [
+						"public",
+						"wcs",
+						"schneider-electric",
+						"ws"
+					],
+					"path": [
+						"rpc",
+						"public_genie",
+						"poll"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Boost Hot Water 90 Mins",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "User-Agent-Wiser",
+						"type": "text",
+						"value": "iPhoneTestTool;iOS6;WiserApp2.0.0"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"zoneId\": [\n        1\n    ],\n    \"setPoint\": 255,\n    \"durationMinutes\": 90\n}",
+					"options": {
+						"raw": {
+							"language": "javascript"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://public.wcs.schneider-electric.ws/rpc/public_genie/apply_timer",
+					"protocol": "https",
+					"host": [
+						"public",
+						"wcs",
+						"schneider-electric",
+						"ws"
+					],
+					"path": [
+						"rpc",
+						"public_genie",
+						"apply_timer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Turn Off Hot Water",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "User-Agent-Wiser",
+						"type": "text",
+						"value": "iPhoneTestTool;iOS6;WiserApp2.0.0"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"zoneId\": [\n        1\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "javascript"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://public.wcs.schneider-electric.ws/rpc/public_genie/cancel_timer",
+					"protocol": "https",
+					"host": [
+						"public",
+						"wcs",
+						"schneider-electric",
+						"ws"
+					],
+					"path": [
+						"rpc",
+						"public_genie",
+						"cancel_timer"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

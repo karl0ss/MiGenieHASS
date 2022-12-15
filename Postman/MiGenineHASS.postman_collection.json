@@ -1,0 +1,230 @@
+{
+	"info": {
+		"_postman_id": "3db6d8ea-c867-46d4-a46c-7a1ad0376819",
+		"name": "MiGenineHASS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Water Root",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/water",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"water"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Water Status",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/water/status",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"water",
+						"status"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Heating Root",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/heating",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"heating"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Heating Status",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/heating/status",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"heating",
+						"status"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Boost Water for Time",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{}",
+					"options": {
+						"raw": {
+							"language": "javascript"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/water/boost?time=30",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"water",
+						"boost"
+					],
+					"query": [
+						{
+							"key": "time",
+							"value": "30",
+							"description": "Length of boost in mins"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Turn Off Water",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{}",
+					"options": {
+						"raw": {
+							"language": "javascript"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/water/turn_off",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"water",
+						"turn_off"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Turn Off Heating",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{}",
+					"options": {
+						"raw": {
+							"language": "javascript"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/heating/turn_off",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"heating",
+						"turn_off"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Turn On Heating to temp for time",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{}",
+					"options": {
+						"raw": {
+							"language": "javascript"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/heating/turn_on?temp&time",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"heating",
+						"turn_on"
+					],
+					"query": [
+						{
+							"key": "temp",
+							"value": null,
+							"description": "Temp in Celcius"
+						},
+						{
+							"key": "time",
+							"value": null,
+							"description": "Length of boost in Mins"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
