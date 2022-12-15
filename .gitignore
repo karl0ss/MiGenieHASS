@@ -1,2 +1,5 @@
 .env
 *.pyc
+poll_cache.sqlite
+test.py
+.vscode/launch.json
