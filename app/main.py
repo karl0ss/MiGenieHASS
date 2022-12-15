@@ -1,9 +1,12 @@
 from flask import Flask
 from flask_restful import Api
-from Routes import water, heating
+from Routes import water, heating, poll
 app = Flask(__name__)
 api = Api(app)
 
+@app.route('/poll_genie')
+def poll_genie():
+    return poll.poll_genie()
 
 @app.route('/water')
 def water_root():

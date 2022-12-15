@@ -1,9 +1,10 @@
 import requests
+from requests_cache import CachedSession
 from dotenv import load_dotenv
 import os
-load_dotenv()
 from lib.utils import convert_to_real_temp, is_valid_time
 
+load_dotenv()
 username = os.getenv("username")
 password = os.getenv("password")
 
@@ -19,12 +20,19 @@ def poll_genie():
     response = requests.request("POST", url, headers=headers, data=payload, auth=(username, password))
     return response.json()
 
+def poll_genie_proxy():  
+    session = CachedSession('poll_cache', backend='sqlite',expire_after=30)
+    url = 'http://127.0.0.1:5000/poll_genie'
+    response = session.get(url)
+    print("MiGenie Session Token = " + str(response.json()['sessionToken']))
+    return response.json()
+
 def get_heating_data():
-    data = poll_genie()
+    data = poll_genie_proxy()
     return data['updateData']['zones'][0]
 
 def get_water_data():
-    data = poll_genie()
+    data = poll_genie_proxy()
     return data['updateData']['zones'][1]
 
 def boost_water(time:int):
