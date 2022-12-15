@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "migenie-python"
+version = "0.1.0"
+description = ""
+authors = ["Karl Hudgell <karl@k-world.me.uk>"]
+readme = "README.md"
+packages = [{include = "migenie_python"}]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+Flask = "^2.2.2"
+Flask-RESTful = "^0.3.9"
+requests = "^2.28.1"
+python-dotenv = "^0.21.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
