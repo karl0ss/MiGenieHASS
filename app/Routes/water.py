@@ -1,5 +1,6 @@
 from lib import migenie, utils
-
+from flask_restful import reqparse
+from time import sleep
 
 def get_water_root()->dict:
     """_summary_
@@ -30,3 +31,21 @@ def get_water_status()->dict:
     
     return waterStatus, 200
     
+def boost_water()->dict:
+    parser = reqparse.RequestParser()  # initialize
+    parser.add_argument('time',required=True)
+    time = int(parser.parse_args()['time'])
+    data = migenie.boost_water(time)
+    sleep(2)
+    if get_water_status()[0]['waterOn']:
+        return data, 200  # return data with 200 OK
+    else: 
+        return data, 400
+
+def turn_off_water()->dict:
+    data = migenie.turn_off_water()
+    sleep(2)
+    if get_water_status()[0]['waterOn']:
+        return data, 400  # return data with 200 OK
+    else: 
+        return data, 200

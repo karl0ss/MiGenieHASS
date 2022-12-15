@@ -1,6 +1,6 @@
 import datetime
 
-def convert_to_real_temp(migenie_value:int)->float:
+def convert_to_real_temp(migenie_value:int, flip:bool=False)->float:
     """_summary_
 
     Args:
@@ -9,12 +9,23 @@ def convert_to_real_temp(migenie_value:int)->float:
     Returns:
         float: _description_
     """    
-    start = [50,5]
-    if migenie_value == 0:
-        return 0.0
+    if flip:
+        start = [50,5]
+        # [88,24]
+        if migenie_value == 0:
+            return 0.0
+        else:
+            steps = migenie_value - start[1]
+            new_steps = steps + start[0]
+            migenie_val = new_steps + steps
+            return int(migenie_val)
     else:
-        steps = migenie_value - start[0]
-        return start[1] + .5*steps
+        start = [50,5]
+        if migenie_value == 0:
+            return 0.0
+        else:
+            steps = migenie_value - start[0]
+            return start[1] + .5*steps
     
 def is_item_on(item_name:int)->bool:
     """_summary_
@@ -51,3 +62,24 @@ def format_time(date_time:int)->str:
         str: _description_
     """
     return datetime.datetime.fromtimestamp(date_time).strftime('%H:%M:%S')
+
+def format_temp(temp:int):
+    """_summary_
+
+    Args:
+        temp (int): _description_
+
+    Returns:
+        _type_: _description_
+    """    
+    temp = str(temp)
+    whole = temp[:-1]
+    decimal = temp[-1]
+    return float(f"{whole}.{decimal}")
+
+def is_valid_time(time:int):
+    is_valid = time / 30
+    if is_valid.is_integer():
+        return True
+    else:
+        return False
