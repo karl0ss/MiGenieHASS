@@ -8,6 +8,7 @@ load_dotenv()
 username = os.getenv("username")
 password = os.getenv("password")
 
+session = CachedSession('poll_cache', backend='sqlite',expire_after=30)
 root_url = "https://public.wcs.schneider-electric.ws/rpc/public_genie/"
 
 def poll_genie():  
@@ -21,7 +22,6 @@ def poll_genie():
     return response.json()
 
 def poll_genie_proxy():  
-    session = CachedSession('poll_cache', backend='sqlite',expire_after=30)
     url = 'http://127.0.0.1:5000/poll_genie'
     response = session.get(url)
     print("MiGenie Session Token = " + str(response.json()['sessionToken']))
@@ -45,6 +45,7 @@ def boost_water(time:int):
         'Content-Type': 'application/javascript'
         }
         response = requests.request("POST", url, headers=headers, data=payload, auth=(username, password))
+        session.cache.clear()
         return response.json()
     else:
         return {"Error":"Time must be multiples of 30"}
@@ -58,6 +59,7 @@ def turn_off_water():
     'Content-Type': 'application/javascript'
     }
     response = requests.request("POST", url, headers=headers, data=payload, auth=(username, password))
+    session.cache.clear()
     return response.json()
 
 def turn_on_heating(temp:int, time):
@@ -70,6 +72,7 @@ def turn_on_heating(temp:int, time):
         'Content-Type': 'application/javascript'
         }
         response = requests.request("POST", url, headers=headers, data=payload, auth=(username, password))
+        session.cache.clear()
         return response.json()
     else:
         return {"Error":"Time must be multiples of 30"}    
@@ -83,4 +86,5 @@ def turn_off_heating():
     'Content-Type': 'application/javascript'
     }
     response = requests.request("POST", url, headers=headers, data=payload, auth=(username, password))
+    session.cache.clear()
     return response.json()
